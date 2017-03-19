@@ -107,12 +107,11 @@ class Arduino(threading.Thread) :
  
 
 			  snapshot_return_code = call(take_snapshot_cmd, shell=True)
-
 			  #print "Snapshot return code is ", snapshot_return_code
 
 			  
 
-			  print "\n\n************************** DOING GIT STUFF.... ***********************\n\n"
+t			  print "\n\n************************** DOING GIT STUFF.... ***********************\n\n"
 
 
 
@@ -140,11 +139,11 @@ class Arduino(threading.Thread) :
 
 
 
-			  print "\n\n****************************  CALLING SEND_SMS COMMAND.... **********************\n\n"
+			  prin "\n\n****************************  CALLING SEND_SMS COMMAND.... **********************\n\n"
 
 
 
-			  send_sms_cmd = "python ./send_sms.py -u https://github.com/rdachere/whosthere/blob/master/snaps/" + snapshot_filename
+			  send_sms_cmd = "python ./send_noti.py -u https://github.com/kgamer23/Project1000/tree/master/snaps" + snapshot_filename
 
 			  sms_url_rc = call(send_sms_cmd, shell=True)
 
@@ -161,11 +160,8 @@ class Arduino(threading.Thread) :
 
 
 			  print "Done sleeping  - I'm awake again!!!! "
-
 		          continue	
-
                 else:
-
                     print data
 
 
@@ -173,15 +169,12 @@ class Arduino(threading.Thread) :
 # If -i, run in interactive mode
 
 if len (sys.argv) > 1 and sys.argv[1] == '-i' :
-
     interactive = True
 
 else :
-
     interactive = False
 
 
 
 arduino = Arduino()
-
 arduino.run(interactive)
